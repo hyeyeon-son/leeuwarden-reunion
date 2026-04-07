@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Leeuwarden Reunion — 10 Years!</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500&display=swap');
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #1a1a2e;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      font-family: 'Inter', sans-serif;
+      padding: 20px;
+    }
+
+    .card {
+      background: #fff;
+      max-width: 520px;
+      width: 100%;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.4);
+    }
+
+    /* Header */
+    .header {
+      background: linear-gradient(135deg, #E8650A 0%, #FF8C00 60%, #FFA833 100%);
+      padding: 48px 36px 36px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .header::before {
+      content: '';
+      position: absolute;
+      top: -40px; right: -40px;
+      width: 180px; height: 180px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.08);
+    }
+    .header::after {
+      content: '';
+      position: absolute;
+      bottom: -60px; left: -30px;
+      width: 220px; height: 220px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.06);
+    }
+
+    .oldehove-wrap {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 16px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .oldehove-wrap svg {
+      filter: drop-shadow(0 8px 18px rgba(0,0,0,0.25));
+    }
+
+    .header h1 {
+      font-family: 'Playfair Display', serif;
+      color: #fff;
+      font-size: 2rem;
+      line-height: 1.2;
+      letter-spacing: 0.5px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .header .sub {
+      color: rgba(255,255,255,0.88);
+      font-size: 0.9rem;
+      margin-top: 8px;
+      font-weight: 300;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Badge */
+    .badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.2);
+      border: 1.5px solid rgba(255,255,255,0.5);
+      color: #fff;
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 1.5px;
+      padding: 5px 14px;
+      border-radius: 20px;
+      margin-top: 16px;
+      text-transform: uppercase;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Body */
+    .body {
+      padding: 36px 36px 28px;
+    }
+
+    .greeting {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      color: #1a1a2e;
+      margin-bottom: 14px;
+    }
+
+    .body p {
+      color: #555;
+      font-size: 0.95rem;
+      line-height: 1.75;
+      margin-bottom: 28px;
+    }
+
+    /* Details */
+    .details {
+      background: #fff8f2;
+      border-left: 4px solid #E8650A;
+      border-radius: 0 12px 12px 0;
+      padding: 20px 22px;
+      margin-bottom: 28px;
+    }
+
+    .detail-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 7px 0;
+      color: #333;
+      font-size: 0.93rem;
+    }
+
+    .detail-row:not(:last-child) {
+      border-bottom: 1px dashed #f0d8c4;
+    }
+
+    .icon {
+      font-size: 1.2rem;
+      width: 26px;
+      text-align: center;
+      flex-shrink: 0;
+    }
+
+    .detail-label {
+      color: #E8650A;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      display: block;
+    }
+
+    /* RSVP */
+    .rsvp {
+      text-align: center;
+      padding: 0 0 8px;
+    }
+
+    .rsvp p {
+      font-size: 0.88rem;
+      color: #888;
+      margin-bottom: 16px;
+    }
+
+    .rsvp-btn {
+      display: inline-block;
+      background: linear-gradient(135deg, #E8650A, #FF8C00);
+      color: #fff;
+      text-decoration: none;
+      padding: 14px 40px;
+      border-radius: 50px;
+      font-weight: 500;
+      font-size: 0.95rem;
+      letter-spacing: 0.5px;
+      box-shadow: 0 8px 20px rgba(232,101,10,0.35);
+      transition: transform 0.2s, box-shadow 0.2s;
+      cursor: pointer;
+      border: none;
+    }
+
+    .rsvp-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(232,101,10,0.45);
+    }
+
+    /* Footer */
+    .footer {
+      background: #f9f9f9;
+      border-top: 1px solid #eee;
+      padding: 18px 36px;
+      text-align: center;
+      color: #bbb;
+      font-size: 0.78rem;
+      letter-spacing: 0.5px;
+    }
+
+    .footer span {
+      color: #E8650A;
+      font-size: 1rem;
+    }
+
+    /* Tulip strip */
+    .tulip-strip {
+      background: linear-gradient(135deg, #E8650A 0%, #FF8C00 100%);
+      padding: 10px 0;
+      text-align: center;
+      font-size: 1.4rem;
+      letter-spacing: 6px;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+
+    <!-- Header -->
+    <div class="header">
+      <!-- Oldehove Tower SVG -->
+      <div class="oldehove-wrap">
+        <svg width="130" height="190" viewBox="0 0 130 190" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Sky/ground hint -->
+          <ellipse cx="65" cy="182" rx="48" ry="6" fill="rgba(0,0,0,0.15)"/>
+
+          <!-- === BASE SECTION === -->
+          <g transform="rotate(-4, 65, 175)">
+            <!-- Base block -->
+            <rect x="22" y="130" width="86" height="50" rx="3" fill="#f5ece0"/>
+            <!-- Brick texture base -->
+            <line x1="22" y1="144" x2="108" y2="144" stroke="#d4bda0" stroke-width="1"/>
+            <line x1="22" y1="157" x2="108" y2="157" stroke="#d4bda0" stroke-width="1"/>
+            <line x1="22" y1="170" x2="108" y2="170" stroke="#d4bda0" stroke-width="1"/>
+            <line x1="43" y1="130" x2="43" y2="144" stroke="#d4bda0" stroke-width="0.8"/>
+            <line x1="65" y1="130" x2="65" y2="144" stroke="#d4bda0" stroke-width="0.8"/>
+            <line x1="87" y1="130" x2="87" y2="144" stroke="#d4bda0" stroke-width="0.8"/>
+            <line x1="33" y1="144" x2="33" y2="157" stroke="#d4bda0" stroke-width="0.8"/>
+            <line x1="54" y1="144" x2="54" y2="157" stroke="#d4bda0" stroke-width="0.8"/>
+            <line x1="76" y1="144" x2="76" y2="157" stroke="#d4bda0" stroke-width="0.8"/>
+            <line x1="97" y1="144" x2="97" y2="157" stroke="#d4bda0" stroke-width="0.8"/>
+            <line x1="43" y1="157" x2="43" y2="170" stroke="#d4bda0" stroke-width="0.8"/>
+            <line x1="65" y1="157" x2="65" y2="170" stroke="#d4bda0" stroke-width="0.8"/>
+            <line x1="87" y1="157" x2="87" y2="170" stroke="#d4bda0" stroke-width="0.8"/>
+            <!-- Arched entrance -->
+            <path d="M52 180 L52 162 Q65 152 78 162 L78 180 Z" fill="#8b5e3c"/>
+            <path d="M56 180 L56 164 Q65 157 74 164 L74 180 Z" fill="#5a3520"/>
+
+            <!-- === MIDDLE SECTION === -->
+            <rect x="30" y="82" width="70" height="52" rx="2" fill="#eddcc8"/>
+            <!-- Brick texture mid -->
+            <line x1="30" y1="95" x2="100" y2="95" stroke="#c9a882" stroke-width="0.8"/>
+            <line x1="30" y1="108" x2="100" y2="108" stroke="#c9a882" stroke-width="0.8"/>
+            <line x1="30" y1="121" x2="100" y2="121" stroke="#c9a882" stroke-width="0.8"/>
+            <line x1="47" y1="82" x2="47" y2="95" stroke="#c9a882" stroke-width="0.7"/>
+            <line x1="65" y1="82" x2="65" y2="95" stroke="#c9a882" stroke-width="0.7"/>
+            <line x1="83" y1="82" x2="83" y2="95" stroke="#c9a882" stroke-width="0.7"/>
+            <line x1="38" y1="95" x2="38" y2="108" stroke="#c9a882" stroke-width="0.7"/>
+            <line x1="56" y1="95" x2="56" y2="108" stroke="#c9a882" stroke-width="0.7"/>
+            <line x1="74" y1="95" x2="74" y2="108" stroke="#c9a882" stroke-width="0.7"/>
+            <line x1="92" y1="95" x2="92" y2="108" stroke="#c9a882" stroke-width="0.7"/>
+            <!-- Windows mid -->
+            <rect x="39" y="98" width="12" height="16" rx="6" fill="#7ab0d4"/>
+            <rect x="79" y="98" width="12" height="16" rx="6" fill="#7ab0d4"/>
+            <rect x="57" y="110" width="16" height="20" rx="8" fill="#7ab0d4"/>
+            <!-- Ledge -->
+            <rect x="27" y="128" width="76" height="5" rx="1" fill="#c4956a"/>
+
+            <!-- === UPPER SECTION === -->
+            <rect x="37" y="44" width="56" height="42" rx="2" fill="#e5cdb6"/>
+            <!-- Brick texture upper -->
+            <line x1="37" y1="56" x2="93" y2="56" stroke="#c0966e" stroke-width="0.7"/>
+            <line x1="37" y1="68" x2="93" y2="68" stroke="#c0966e" stroke-width="0.7"/>
+            <line x1="37" y1="80" x2="93" y2="80" stroke="#c0966e" stroke-width="0.7"/>
+            <line x1="52" y1="44" x2="52" y2="56" stroke="#c0966e" stroke-width="0.7"/>
+            <line x1="65" y1="44" x2="65" y2="56" stroke="#c0966e" stroke-width="0.7"/>
+            <line x1="78" y1="44" x2="78" y2="56" stroke="#c0966e" stroke-width="0.7"/>
+            <!-- Windows upper -->
+            <rect x="47" y="52" width="10" height="14" rx="5" fill="#7ab0d4"/>
+            <rect x="73" y="52" width="10" height="14" rx="5" fill="#7ab0d4"/>
+            <rect x="55" y="68" width="10" height="12" rx="5" fill="#7ab0d4"/>
+            <!-- Ledge -->
+            <rect x="34" y="83" width="62" height="4" rx="1" fill="#b8835a"/>
+
+            <!-- === TOP SMALL SECTION === -->
+            <rect x="44" y="18" width="42" height="30" rx="2" fill="#dbbfa3"/>
+            <line x1="44" y1="28" x2="86" y2="28" stroke="#b8835a" stroke-width="0.7"/>
+            <line x1="58" y1="18" x2="58" y2="28" stroke="#b8835a" stroke-width="0.7"/>
+            <line x1="72" y1="18" x2="72" y2="28" stroke="#b8835a" stroke-width="0.7"/>
+            <!-- Small window -->
+            <rect x="58" y="24" width="14" height="16" rx="7" fill="#7ab0d4"/>
+            <!-- Ledge -->
+            <rect x="41" y="45" width="48" height="4" rx="1" fill="#a8724c"/>
+
+            <!-- === CRENELLATIONS / CROWN === -->
+            <rect x="44" y="10" width="42" height="10" rx="1" fill="#d0b090"/>
+            <!-- Merlons -->
+            <rect x="44" y="4" width="7" height="8" rx="1" fill="#c8a07a"/>
+            <rect x="55" y="4" width="7" height="8" rx="1" fill="#c8a07a"/>
+            <rect x="66" y="4" width="7" height="8" rx="1" fill="#c8a07a"/>
+            <rect x="77" y="4" width="7" height="8" rx="1" fill="#c8a07a"/>
+
+            <!-- Shadow/depth left side -->
+            <rect x="22" y="130" width="8" height="50" rx="0" fill="rgba(0,0,0,0.06)"/>
+            <rect x="30" y="82" width="7" height="52" fill="rgba(0,0,0,0.05)"/>
+            <rect x="37" y="44" width="6" height="42" fill="rgba(0,0,0,0.05)"/>
+          </g>
+        </svg>
+      </div>
+
+      <h1>Leeuwarden Reunion</h1>
+      <p class="sub">10 Years Later</p>
+      <span class="badge">🇳🇱 &nbsp;교환학생 10주년 &nbsp;🎉</span>
+    </div>
+
+    <!-- Tulip strip -->
+    <div class="tulip-strip">🌷🌷🌷🌷🌷🌷🌷</div>
+
+    <!-- Body -->
+    <div class="body">
+      <h2 class="greeting">Hey Leeuwarden crew! 👋</h2>
+      <p>
+        벌써 10년이 흘렀어요. Leeuwarden에서 함께했던 그 시절이 생각나지 않나요?<br/>
+        오래간만에 모여서 추억도 되새기고, 전하고 싶은 <strong>좋은 소식</strong>도 있어서 여러분을 초대해요.<br/><br/>
+        꼭 와줘요!
+      </p>
+
+      <!-- Details block -->
+      <div class="details">
+        <div class="detail-row">
+          <span class="icon">📅</span>
+          <div>
+            <span class="detail-label">Date</span>
+            April 26, 2026 (Sunday)
+          </div>
+        </div>
+        <div class="detail-row">
+          <span class="icon">🌇</span>
+          <div>
+            <span class="detail-label">Time</span>
+            저녁 (Evening) — TBD
+          </div>
+        </div>
+        <div class="detail-row">
+          <span class="icon">📍</span>
+          <div>
+            <span class="detail-label">Location</span>
+            선릉역 (Seonreung Station), Seoul
+          </div>
+        </div>
+        <div class="detail-row">
+          <span class="icon">✨</span>
+          <div>
+            <span class="detail-label">Special</span>
+            좋은 소식 있어요 — come find out!
+          </div>
+        </div>
+      </div>
+
+      <!-- RSVP -->
+      <div class="rsvp">
+        <p>참석 여부를 알려주세요 :)</p>
+        <button class="rsvp-btn" onclick="alert('연락 주세요! 🧡')">I\'ll be there! 🙋</button>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      Made with <span>🧡</span> &nbsp;·&nbsp; Leeuwarden 2016 → Seoul 2026
+    </div>
+
+  </div>
+</body>
+</html>
