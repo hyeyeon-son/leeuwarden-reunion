@@ -210,6 +210,63 @@
       font-size: 1rem;
     }
 
+    /* Memory link */
+    .memory-link {
+      display: inline-block;
+      color: #E8650A;
+      font-size: 0.88rem;
+      font-weight: 500;
+      cursor: pointer;
+      text-decoration: underline dotted;
+      margin-bottom: 20px;
+    }
+    .memory-link:hover { color: #c4500a; }
+
+    /* Modal */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.75);
+      z-index: 100;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+    .modal-overlay.open { display: flex; }
+    .modal-box {
+      background: #fff;
+      border-radius: 16px;
+      overflow: hidden;
+      max-width: 420px;
+      width: 100%;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.5);
+      position: relative;
+    }
+    .modal-box img {
+      width: 100%;
+      display: block;
+    }
+    .modal-caption {
+      padding: 14px 18px;
+      font-size: 0.88rem;
+      color: #555;
+      text-align: center;
+      font-style: italic;
+    }
+    .modal-close {
+      position: absolute;
+      top: 10px; right: 12px;
+      background: rgba(0,0,0,0.45);
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      width: 30px; height: 30px;
+      font-size: 1rem;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+    }
+
     /* Tulip strip */
     .tulip-strip {
       background: linear-gradient(135deg, #E8650A 0%, #FF8C00 100%);
@@ -332,6 +389,8 @@
         꼭 와줘요!
       </p>
 
+      <span class="memory-link" onclick="document.getElementById('memoryModal').classList.add('open')">🏠 우리 기숙사 기억해? →</span>
+
       <!-- Details block -->
       <div class="details">
         <div class="detail-row">
@@ -399,6 +458,15 @@
         <button class="rsvp-btn" onclick="alert('연락 주세요! 🧡')">I\'ll be there! 🙋</button>
       </div>
     </div>
+
+  <!-- Modal -->
+  <div class="modal-overlay" id="memoryModal" onclick="if(event.target===this)this.classList.remove('open')">
+    <div class="modal-box">
+      <button class="modal-close" onclick="document.getElementById('memoryModal').classList.remove('open')">✕</button>
+      <img src="door.jpg" alt="우리 기숙사 문" />
+      <p class="modal-caption">📍 우리의 그 빨간 문 🚪 Leeuwarden, 2016</p>
+    </div>
+  </div>
 
     <!-- Footer -->
     <div class="footer">
