@@ -267,6 +267,20 @@
       display: flex; align-items: center; justify-content: center;
     }
 
+    /* Photo gallery modal */
+    .photo-gallery {
+      display: flex;
+      gap: 0;
+      flex-direction: column;
+    }
+    .photo-gallery img {
+      width: 100%;
+      display: block;
+    }
+    .photo-gallery img + img {
+      border-top: 3px solid #fff;
+    }
+
     /* Tulip strip */
     .tulip-strip {
       background: linear-gradient(135deg, #E8650A 0%, #FF8C00 100%);
@@ -474,5 +488,13 @@
     </div>
 
   </div>
+  <script>
+    // Auto-open door modal on page load
+    window.addEventListener('DOMContentLoaded', function() {
+      setTimeout(function() {
+        document.getElementById('memoryModal').classList.add('open');
+      }, 600);
+    });
+  </script>
 </body>
 </html>
